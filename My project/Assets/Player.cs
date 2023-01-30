@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown("space"))
         {
-            gameObject.getComponent()<SpriteRender>.color = Color.blue;
+            // this.gameObject.getComponent()<SpriteRender>.color = Color.blue;
         }
     }
 }
