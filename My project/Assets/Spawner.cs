@@ -19,9 +19,9 @@ public class Spawner : MonoBehaviour
     {
         if(timeToFire <= 0f){
             timeToFire = time;
-            speed += 0.1f;
+            //speed += 0.2f;
             if(time > limit){
-                time -= .1f;
+                time -= .05f;
             }
             Spawn();
         }
