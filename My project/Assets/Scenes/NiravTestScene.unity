@@ -286,8 +286,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 969733826}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -5}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -371,9 +371,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 969733826}
   missiles: {fileID: 1135772738833111615, guid: 49adc6dea1221c447a330606235a99ea, type: 3}
-  speed: 1
+  speed: 6
   time: 3
-  limit: 0.4
+  limit: 0.5
   minRange: 4
   maxRange: 6
 --- !u!4 &1625214931
