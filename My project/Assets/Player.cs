@@ -15,11 +15,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown("space"))
         {
-<<<<<<< HEAD
             // this.gameObject.getComponent()<SpriteRender>.color = Color.blue;
-=======
-            gameObject.getComponent()<SpriteRender>.color = Color.blue;
->>>>>>> parent of 798205d (Added Triangles + Spawners)
         }
     }
 }
