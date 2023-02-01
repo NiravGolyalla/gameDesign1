@@ -23,15 +23,12 @@ public class Missile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(target == null){
-            Destroy(gameObject);
-        }
         MoveProjectile();
     }
 
     private void MoveProjectile()
     {
-        if(target == null){
+        if(!target.GetComponent<CenterButton>().active){
             Destroy(gameObject);
         }
         transform.position = Vector3.MoveTowards(transform.position,

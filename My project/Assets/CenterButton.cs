@@ -11,9 +11,10 @@ public class CenterButton : MonoBehaviour
     
     public string colorStatus = "red";  //At least two status: red, blue
 
-    public GameObject gameOver;
-    public SpriteRenderer sp;
-    public GameStatus gs;
+    public GameObject uigameOver;
+    public GameObject uiStart;
+    public GameObject uiScore;
+    private SpriteRenderer sp;
     public bool active = false;
     public int score = 0;
 
@@ -21,10 +22,7 @@ public class CenterButton : MonoBehaviour
     void Start()
     {
         sp = GetComponent<SpriteRenderer>();
-        // sp.color = new Color32(0, 255, 0, 1);
-        sp.color = Color.green;
-        gs = GameStatus.READY;
-        print(gs);
+        sp.color = Color.white;
     }
 
     // Update is called once per frame
@@ -32,12 +30,12 @@ public class CenterButton : MonoBehaviour
     {   
         if (Input.GetKeyDown("space")||Input.GetMouseButtonDown(0))
         {
-            gameOver.SetActive(false);
+            uiStart.SetActive(false);
+            uiScore.SetActive(true);
+            uigameOver.SetActive(false);
             if(!active){
                 score = 0;
             }
-            gs = GameStatus.START;
-            print(gs);
             
             active = true;
 
@@ -62,10 +60,13 @@ public class CenterButton : MonoBehaviour
     {
         Destroy(col.gameObject);
         if(col.gameObject.GetComponent<Missile>().colorStatus == colorStatus){
-            score += 1;
+            if(active){
+                score += 1;
+            }
         } else{
             active = false;
-            gameOver.SetActive(true);
+            uigameOver.SetActive(true);
+            uiScore.SetActive(false);
         }
     }
 }
