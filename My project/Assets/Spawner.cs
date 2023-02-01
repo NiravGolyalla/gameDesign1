@@ -8,16 +8,17 @@ public class Spawner : MonoBehaviour
     public GameObject missiles;
 
 
-    private float speedSave;
+    private int speedSave;
     private float timeSave;
 
 
 
-    public float speed;
-    public float speedlimit;
+    public int speed;
+    public int speedlimit;
     public float time;
     public float timelimit = 0.5f;
     float timeToFire;
+    private int speedtracker;
 
     public float minRange;
     public float maxRange;
@@ -35,7 +36,11 @@ public class Spawner : MonoBehaviour
                 if(timeToFire <= 0f){
                     timeToFire = time;
                     if(speed < speedlimit){
-                        speed += .2f;
+                        if(speedtracker > 3){
+                            speed += 1;
+                            speedtracker = 0;
+                        }
+                        speedtracker += 1;
                     }
                     if(time > timelimit){
                         time -= .2f;
@@ -71,7 +76,8 @@ public class Spawner : MonoBehaviour
         var position = new Vector3(xpos,ypos, 0);
         GameObject missile = Instantiate(missiles, position, Quaternion.identity);
         missile.GetComponent<Missile>().target = target;
-        missile.GetComponent<Missile>().moveSpeed = Random.Range(speed, speed*1.5f);;
+        float newspeed = (float) (Random.Range(speedSave, speed));
+        missile.GetComponent<Missile>().moveSpeed = newspeed;
     }
 
     void Reset(){

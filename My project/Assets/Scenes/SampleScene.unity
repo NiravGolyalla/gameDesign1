@@ -702,19 +702,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2261815044051723887, guid: 2a9e45422fdc52c4aba26ee106626231, type: 3}
       propertyPath: speed
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2261815044051723887, guid: 2a9e45422fdc52c4aba26ee106626231, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 402267757}
     - target: {fileID: 2261815044051723887, guid: 2a9e45422fdc52c4aba26ee106626231, type: 3}
+      propertyPath: maxRange
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2261815044051723887, guid: 2a9e45422fdc52c4aba26ee106626231, type: 3}
+      propertyPath: minRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2261815044051723887, guid: 2a9e45422fdc52c4aba26ee106626231, type: 3}
       propertyPath: timelimit
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2261815044051723887, guid: 2a9e45422fdc52c4aba26ee106626231, type: 3}
       propertyPath: speedlimit
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9e45422fdc52c4aba26ee106626231, type: 3}
