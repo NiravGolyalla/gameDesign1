@@ -10,9 +10,12 @@ public class CenterButton : MonoBehaviour
 {
     
     public string colorStatus = "red";  //At least two status: red, blue
+
+    public GameObject gameOver;
     public SpriteRenderer sp;
     public GameStatus gs;
-    public int actionCount = 0;
+    public bool active = false;
+    public int score = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -29,12 +32,15 @@ public class CenterButton : MonoBehaviour
     {   
         if (Input.GetKeyDown("space")||Input.GetMouseButtonDown(0))
         {
+            gameOver.SetActive(false);
+            if(!active){
+                score = 0;
+            }
             gs = GameStatus.START;
             print(gs);
             
-            actionCount++;
-            print(actionCount);
-            
+            active = true;
+
             // print("Space Down");
             if(colorStatus=="red"){
                 colorStatus ="blue";
@@ -49,6 +55,17 @@ public class CenterButton : MonoBehaviour
                 sp.color= Color.red;
             }
             print("color:" + colorStatus);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        Destroy(col.gameObject);
+        if(col.gameObject.GetComponent<Missile>().colorStatus == colorStatus){
+            score += 1;
+        } else{
+            active = false;
+            gameOver.SetActive(true);
         }
     }
 }

@@ -6,29 +6,38 @@ public class Missile : MonoBehaviour
 {
     public GameObject target;
     public float moveSpeed = 1;
+    public string colorStatus;
     // Start is called before the first frame update
     void Start()
     {
         int col = Random.Range(0,2);
         if(col == 0){
             gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+            colorStatus = "blue";
         } else{
             gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+            colorStatus = "red";
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(target == null){
+            Destroy(gameObject);
+        }
         MoveProjectile();
     }
 
     private void MoveProjectile()
     {
+        if(target == null){
+            Destroy(gameObject);
+        }
         transform.position = Vector3.MoveTowards(transform.position,
         target.transform.position, moveSpeed * Time.deltaTime);
 
-        if ((transform.position - target.transform.position).magnitude < 1f)
+        if ((transform.position - target.transform.position).magnitude < .01f)
         {
             Destroy(gameObject);
         }

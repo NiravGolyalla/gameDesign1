@@ -17,15 +17,19 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timeToFire <= 0f){
-            timeToFire = time;
-            //speed += 0.2f;
-            if(time > limit){
-                time -= .05f;
+        if(target != null){
+            if(target.GetComponent<CenterButton>().active) {
+                if(timeToFire <= 0f){
+                    timeToFire = time;
+                    //speed += 0.2f;
+                    if(time > limit){
+                        time -= .05f;
+                }
+                Spawn();
             }
-            Spawn();
+            timeToFire -= Time.deltaTime; 
+            }
         }
-        timeToFire -= Time.deltaTime; 
     }
 
     void Spawn(){
